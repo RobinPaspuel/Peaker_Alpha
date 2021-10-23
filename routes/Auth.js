@@ -5,7 +5,24 @@ const pool = require("../utils/dbconnection");
 const jwtGenerator = require("../utils/jwtGenerator");
 const authorization = require("../middlewares/authorization");
 
-// Resgister routes
+// Swagger Documentation for Register
+/**
+ * Token
+ * @typedef {object} Token
+ * @property {string} token.required - Token
+ */
+
+/**
+ * POST /auth/register
+ * @tags Sign In
+ * @summary This is the register endpoint
+ * @param {string} email.form.required - email
+ * @param {string} password.form.required - password
+ * @return {Token} 200 - Returns a JWT Token
+ */
+
+// Resgister Route
+
 router.post("/register", async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -39,7 +56,18 @@ router.post("/register", async (req, res) => {
   }
 });
 
+// Swagger Documentation for Login
+/**
+ * POST /auth/login
+ * @tags Log In
+ * @summary This is the login endpoint
+ * @param {string} email.form.required - email
+ * @param {string} password.form.required - password
+ * @return {Token} 200 - Returns a JWT Token
+ */
+
 // Login Route
+
 router.post("/login", async (req, res) => {
   try {
     // Verifying the email
@@ -49,7 +77,7 @@ router.post("/login", async (req, res) => {
       [email]
     );
     if (user.rows.length === 0) {
-      return res.status(401).json("Credenciales incorrectas!");
+      return res.status(401).json("Credenciales incorrectas! 1");
     }
     // Verifying the password
     const validPassword = await bcrypt.compare(
@@ -57,7 +85,7 @@ router.post("/login", async (req, res) => {
       user.rows[0].user_password
     );
     if (!validPassword) {
-      return res.status(401).json("Credenciales incorrectas!");
+      return res.status(401).json("Credenciales incorrectas! 2");
     }
 
     // Generating the JWT token for the user
@@ -69,7 +97,17 @@ router.post("/login", async (req, res) => {
   }
 });
 
+// Swagger Documentation for Authorization
+/**
+ * GET /auth/is-authenticated
+ * @tags Authorization
+ * @summary This is the authorization endpoint
+ * @param {string} token.header - JWT Token
+ * @return {string} 200 - Returns an true if the user is authenticated, otherwise returns "unauthorized"
+ */
+
 // Authorization Route
+
 router.get("/is-authenticated", authorization, async (req, res) => {
   try {
     // Return true after passing through the authorization middleware
