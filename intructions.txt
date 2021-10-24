@@ -1,0 +1,6 @@
+## It is neccesary to change create an .env file including all the data required
+## to connect with the local database, in production these env variables will be
+## setted in the server.
+
+## To generate a valid JWT Key it is neccesary to run the following command:
+## openssl rand -hex 32
