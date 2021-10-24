@@ -77,7 +77,7 @@ router.post("/login", async (req, res) => {
       [email]
     );
     if (user.rows.length === 0) {
-      return res.status(401).json("Credenciales incorrectas! 1");
+      return res.status(401).json("Credenciales incorrectas!");
     }
     // Verifying the password
     const validPassword = await bcrypt.compare(
@@ -85,7 +85,7 @@ router.post("/login", async (req, res) => {
       user.rows[0].user_password
     );
     if (!validPassword) {
-      return res.status(401).json("Credenciales incorrectas! 2");
+      return res.status(401).json("Credenciales incorrectas!");
     }
 
     // Generating the JWT token for the user

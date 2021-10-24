@@ -6,7 +6,7 @@ module.exports = async (req, res, next) => {
     // Check if there exist a token
     const jwtToken = req.header("token");
     if (!jwtToken) {
-      return res.status(403).json("Not Authorized (No JWT TOken)");
+      return res.status(403).json("Not Authorized");
     }
     // Verify the token with the secret key
     const payload = jwt.verify(jwtToken, process.env.JWTSECRETKEY);
