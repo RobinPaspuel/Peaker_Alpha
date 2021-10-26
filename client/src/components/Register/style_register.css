@@ -21,7 +21,7 @@ body
     background-color: rgb(6, 57, 112) ;
 
 }
-.form-box
+.register-container
 {
     width: 380px;
     height: 480px;
@@ -30,8 +30,9 @@ body
     background: lightgray;
     padding: 5px ;
     overflow: hidden;
+    border-radius: 15px;
 }
-.button-box
+.register-button-box
 {
     width: 220px;
     margin: 35px auto;
@@ -48,7 +49,7 @@ body
     outline: none;
     position: relative;
 }
-#btn
+.register-button-box--btn
 {
     top: 0;
     right: 0;

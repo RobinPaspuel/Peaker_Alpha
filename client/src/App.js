@@ -1,11 +1,10 @@
 import React from 'react';
-import { Test } from './components/Test';
+import { Register } from './components/Register';
 
 function App() {
   return (
     <>
-      <h1>Test</h1>
-      <Test />
+      <Register/>
     </>
   );
 }
