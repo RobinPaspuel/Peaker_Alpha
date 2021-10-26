@@ -1,0 +1,31 @@
+## It is neccesary to create an .env file including all the data required, the 
+## example structure is showed in env-example.txt.
+## In production these env variables will be
+## setted in the server.
+
+## The file peakerDB-10-23-2021.sql contains the neccesary code to generate the 
+## database (PostgreSQL) with the required tables.
+## To generate the database you can do it by command line with:
+    psql -U postgres
+    # CREATE DATABASE "peaker"
+    \q
+    psql -U postgres peaker < peakerDB-10-23-2021.sql
+
+## Alternatively you can create the database manually, open the query editor
+## and copy all the contents of peakerDB-10-23-2021.sql and execute.
+
+## To generate a valid JWT Key for JWTSECRETKEY it is neccesary to run the following
+## command on the shell:
+    openssl rand -hex 32
+
+## And copy the output into the JWTSECRETKEY env variable
+
+## The documentation for all the endpoints in Peaker is available at:
+    localhost:8080/api-docs
+
+## In this interface you can test all the endpoints with instructions included
+
+## Alternatively you can use Postman to test the endpoints. (A recomendation is to install
+## the pluggin "Thunder Client" in vscode which is an extension that replicated the working
+## of Postman).
+
