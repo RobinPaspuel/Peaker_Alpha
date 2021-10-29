@@ -39,6 +39,8 @@ body
     position: relative;
     box-shadow: 0 0 20% 9px #fff ;
     border-radius: 30px;
+    display: flex;
+    justify-content: center;
 }
 .toggle-btn
 {
@@ -107,3 +109,9 @@ span{
 }
 
 
+.Register-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
