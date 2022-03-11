@@ -33,3 +33,5 @@ $ docker-compose up -d
 ```
 
 The requires file to creating the database is on resources.
+
+> Check /api-docs to explore the Swagger documentation.
